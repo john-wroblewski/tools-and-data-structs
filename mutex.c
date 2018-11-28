@@ -14,7 +14,7 @@ void mutex_lock(struct mutex* mtx)
   while(xchg(&(mtx->guard), 1) != 0)
   { }
 
-  if(mtx->flag == 0) // locked unheld.... grab it!
+  if(mtx->flag == 0) // lock unheld.... grab it!
   {
     mtx->flag = 1;
 
